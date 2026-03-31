@@ -1,0 +1,31 @@
+"sayilar.txt" dosyasındaki tüm sayıları oku ve toplamlarını ekrana yazdır.
+
+"siir.txt" dosyasını BufferedReader ile satır satır okuyup her satırın başına satır numarası ekleyerek konsola yazdır.
+
+Bir dosyada kaç tane kelime olduğunu sayan bir kod yaz. (İpucu: Scanner.next() kullanabilirsin).
+
+Kullanıcıdan bir isim iste, "rehber.txt" içinde bu ismin olup olmadığını kontrol et.
+
+Bir dosyanın sadece ilk 3 satırını okuyup ekrana basan bir program yaz.
+
+Seviye 4: Hata Yönetimi & Mantık (Karışık)
+Olmayan bir dosyayı okumaya çalış ve fırlatılan FileNotFoundException hatasını yakalayıp "Dosya kayıp, lütfen yolu kontrol et!" mesajı ver.
+
+Bir dosyanın içeriğini okuyup, tüm harfleri büyük harfe çevirerek "buyuk_harf.txt" adında yeni bir dosyaya kaydet.
+
+"notlar.txt" dosyasında "Ali 80", "Veli 40" gibi veriler olsun. Notu 50'den küçük olanları "kalanlar.txt" dosyasına ayıkla.
+
+İki farklı metin dosyasının içeriğini birleştirip üçüncü bir dosyaya yazan bir "Merge" programı yap.
+
+Bir metin dosyasındaki tüm "a" harflerini "e" harfi ile değiştiren (replace) bir kod yaz.
+
+Seviye 5: "Master" Görevler (Gerçek Senaryolar)
+Log Kayıt Sistemi: Program her çalıştığında "log.txt" dosyasına o anki zamanı ve "Program çalıştı" mesajını, eski verileri silmeden eklesin.
+
+Dosya Kopyalayıcı: Bir dosyanın içeriğini byte byte okuyup başka bir dosyaya kopyalayan bir yapı kur.
+
+En Uzun Kelime: Bir dosyanın içindeki en uzun kelimeyi bulup ekrana yazdır.
+
+Sayı Filtreleme: İçinde karışık yazılar ve sayılar olan bir dosyadan sadece sayıları ayıklayıp ekrana bas.
+
+Basit To-Do App: Kullanıcıdan yapılacaklar listesini alıp dosyaya kaydet. Program tekrar açıldığında dosyadan eski listeyi okuyup kullanıcıya göstersin.
