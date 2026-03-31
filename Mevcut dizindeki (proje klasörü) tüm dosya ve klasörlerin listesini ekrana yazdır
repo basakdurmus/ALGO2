@@ -1,0 +1,24 @@
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) {
+        // "." işareti "şu anki dizin" (current directory) demektir
+        File mevcutDizin = new File("."); 
+        
+        // İçindeki tüm dosya ve klasörleri bir diziye alıyoruz
+        File[] icerikListesi = mevcutDizin.listFiles();
+
+        if (icerikListesi != null) {
+            for (File dosya : icerikListesi) {
+                // Her bir dosyanın veya klasörün adını yazdırıyoruz
+                if (dosya.isDirectory()) {
+                    System.out.println("[KLASÖR] " + dosya.getName());
+                } else {
+                    System.out.println("[DOSYA ] " + dosya.getName());
+                }
+            }
+        } else {
+            System.out.println("Dizin boş veya bir hata oluştu.");
+        }
+    }
+}
