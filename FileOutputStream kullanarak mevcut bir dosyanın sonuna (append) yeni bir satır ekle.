@@ -1,0 +1,22 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class DosyaEklemeSade {
+    // Hatayı burada 'throws' diyerek dışarı fırlatıyoruz, böylece try-catch gerekmiyor.
+    public static void main(String[] args) throws IOException {
+        
+        String dosyaYolu = "dosya.txt";
+        String veri = "Bu satır try-catch olmadan eklendi.\n";
+
+        // Nesneyi doğrudan oluşturuyoruz
+        FileOutputStream fos = new FileOutputStream(dosyaYolu, true);
+        
+        // Veriyi yazıyoruz
+        fos.write(veri.getBytes());
+        
+        // İşimiz bitince manuel olarak kapatmamız şart!
+        fos.close();
+        
+        System.out.println("İşlem tamam.");
+    }
+}
