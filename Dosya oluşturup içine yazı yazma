@@ -1,0 +1,9 @@
+try {
+    PrintWriter pr = new PrintWriter("gunluk.txt");
+    pr.println("ben bugun java öğrendim");
+    
+    pr.close(); // KAPISI ÇALINMAYAN EVE GİRİLMEZ! Bu satır veriyi diske yazar.
+    System.out.println("Yazma başarılı!");
+} catch (FileNotFoundException e) {
+    e.printStackTrace();
+}
