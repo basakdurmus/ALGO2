@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.Scanner;
+
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        File f=new File("selam.txt");
+        FileWriter fr=new FileWriter(f,true);
+        fr.write("merhaba basak");
+        try {
+            fr.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+
+            }
