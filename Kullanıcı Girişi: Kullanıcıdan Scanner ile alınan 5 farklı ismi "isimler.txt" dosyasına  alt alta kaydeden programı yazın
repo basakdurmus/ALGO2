@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.Scanner;
+
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        File a=new File("firat.txt");
+        try (PrintWriter pr = new PrintWriter(a)) {
+            for(int i=0;i<5;i++){
+                String isim=scanner.nextLine();
+                pr.println(isim);
+            }
+            pr.close();
+            scanner.close();
+
+        }
+
