@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class Main {
+    public static void main(String[] args) {
+        // 1. Adım: Dosya nesnesini oluştur
+        File dosya = new File("selam.txt");
+        int toplam = 0;
+
+        // 2. Adım: Scanner'ı try-with-resources içinde aç (Otomatik kapanması için)
+        try (Scanner sc = new Scanner(dosya)) {
+            
+            // 3. Adım: Dosyada okunacak bir tam sayı olduğu sürece devam et
+            while (sc.hasNextInt()) { 
+                int sayi = sc.nextInt(); // Bir sonraki tam sayıyı doğrudan al
+                toplam += sayi;
+                System.out.println("Okunan Sayı: " + sayi);
+            }
+
+            System.out.println("--------------------");
+            System.out.println("Sayıların Toplamı: " + toplam);
+
+        } catch (FileNotFoundException e) {
+            System.err.println("Hata: Okunacak dosya bulunamadı!");
+        } catch (Exception e) {
+            System.err.println("Beklenmedik bir hata oluştu: " + e.getMessage());
+        }
+    }
+}
