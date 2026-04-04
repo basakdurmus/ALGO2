@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.Scanner;
+
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        File f=new File("selam.txt");
+        int satirSayisi=0;
+        if(!f.exists()) {
+            System.out.println("böyle bir  dosya yok");
+        }
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(f));
+            while (br.readLine() != null) {
+                satirSayisi++;
+            }
+            System.out.println("satir sayisi: "+ satirSayisi);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
