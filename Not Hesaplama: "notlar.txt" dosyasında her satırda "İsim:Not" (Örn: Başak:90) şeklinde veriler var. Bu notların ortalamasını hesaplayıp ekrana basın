@@ -1,0 +1,45 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class NotOrtalamasi {
+    
+    // String'i int'e çeviren kendi fonksiyonumuz
+    public static int stringToInt(String str) {
+        int sayi = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            sayi = sayi * 10 + (c - '0');
+        }
+
+        return sayi;
+    }
+
+    public static void main(String[] args) {
+        int toplam = 0;
+        int sayac = 0;
+
+        try {
+            File dosya = new File("notlar.txt");
+            Scanner scanner = new Scanner(dosya);
+
+            while (scanner.hasNextLine()) {
+                String satir = scanner.nextLine();   // Başak:90
+                String[] parcalar = satir.split(":");
+
+                int not = stringToInt(parcalar[1]); // parseInt YOK
+                toplam += not;
+                sayac++;
+            }
+
+            scanner.close();
+
+            double ortalama = (double) toplam / sayac;
+            System.out.println("Ortalama: " + ortalama);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Dosya bulunamadı!");
+        }
+    }
+}
