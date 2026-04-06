@@ -1,0 +1,39 @@
+public class polinom {
+    int derece;
+    int[] katsayilar;
+
+    // a) Kurucu Metotlar
+    
+    // Varsayılan kurucu metot: Dereceyi alır, tüm katsayıları 1 yapar.
+    public polinom(int derece) {
+        this.derece = derece;
+        // n. dereceden bir polinomda n+1 tane katsayı bulunur (x^0 dahil).
+        this.katsayilar = new int[derece + 1];
+        for (int i = 0; i < katsayilar.length; i++) {
+            katsayilar[i] = 1;
+        }
+    }
+
+    // Diğer kurucu metot: Derece ve katsayılar dizisini dışarıdan alır.
+    public polinom(int derece, int[] katsayilar) {
+        this.derece = derece;
+        this.katsayilar = katsayilar;
+    }
+
+    // b) Polinom Değeri Hesaplama Metodu
+    public int hesapla(int x) {
+        int sonuc = 0;
+        
+        for (int i = 0; i <= derece; i++) {
+            // Örnekteki [5, 0, 2, 1] sırasına göre:
+            // katsayilar[0] -> x^3 (derece - 0)
+            // katsayilar[1] -> x^2 (derece - 1)
+            // katsayilar[i] -> x^(derece - i)
+            
+            int us = derece - i;
+            sonuc += katsayilar[i] * Math.pow(x, us);
+        }
+        
+        return sonuc;
+    }
+}
