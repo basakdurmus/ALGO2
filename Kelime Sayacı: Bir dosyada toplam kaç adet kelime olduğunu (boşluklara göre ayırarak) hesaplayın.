@@ -1,0 +1,26 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class KelimeSayaci {
+    public static void main(String[] args) {
+        int kelimeSayisi = 0;
+
+        try {
+            File dosya = new File("metin.txt"); // Dosya adı
+            Scanner scanner = new Scanner(dosya);
+
+            while (scanner.hasNext()) {
+                scanner.next(); // bir kelime okur
+                kelimeSayisi++;
+            }
+
+            scanner.close();
+
+            System.out.println("Toplam kelime sayısı: " + kelimeSayisi);
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Dosya bulunamadı!");
+        }
+    }
+}
