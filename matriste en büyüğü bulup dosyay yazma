@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) throws FileNotFoundException {
+        int[][] matris={{1,2,45,565},
+                       {32,45,56,76}};
+
+         int buyuk=matris[0][0];
+
+        File f=new File("buyuk.txt");
+        try (PrintWriter pr = new PrintWriter(f)) {
+            for(int i=0;i<matris.length;i++){
+                for(int j=0;j<matris[i].length;j++){
+                    if(matris[i][j]>buyuk) {
+                        buyuk = matris[i][j];
+                    }}}
+                pr.println(buyuk);
+
+
+
+                    }
+
+
+                }
+
+            }
