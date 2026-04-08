@@ -1,0 +1,60 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        File fr = new File("selam.txt");
+        File alt = new File("alt.txt");
+        File ust = new File("ust.txt");
+
+        try {
+            // Yazma işlemleri için PrintWriter'lar
+            PrintWriter a = new PrintWriter(alt);
+            PrintWriter u = new PrintWriter(ust);
+
+            // 1. ADIM: Dosyayı ilk kez okuyup toplamı ve adeti buluyoruz
+            Scanner dosyaOkuyucu = new Scanner(fr);
+            int toplam = 0;
+            int sayac = 0;
+
+            while (dosyaOkuyucu.hasNextInt()) {
+                toplam += dosyaOkuyucu.nextInt();
+                sayac++;
+            }
+
+            // Eğer dosya boşsa hata almamak için kontrol
+            if (sayac > 0) {
+                int ortalama = toplam / sayac;
+                System.out.println("Hesaplanan Ortalama: " + ortalama);
+
+                // 2. ADIM: İmleç sona geldiği için Scanner'ı kapatıp yeniden açıyoruz (BAŞA SARMA)
+                dosyaOkuyucu.close();
+                dosyaOkuyucu = new Scanner(fr);
+
+                // 3. ADIM: İkinci bir döngüyle sayıları tek tek ortalamayla kıyaslıyoruz
+                while (dosyaOkuyucu.hasNextInt()) {
+                    int okunan = dosyaOkuyucu.nextInt();
+
+                    if (okunan < ortalama) {
+                        a.println(okunan); // Alt dosyasına yaz
+                    } else {
+                        u.println(okunan); // Üst dosyasına yaz
+                    }
+                }
+                System.out.println("İşlem başarıyla tamamlandı!");
+            } else {
+                System.out.println("Dosya boş olduğu için işlem yapılamadı.");
+            }
+
+            // Kaynakları kapatıyoruz (PrintWriter'lar kapatılmazsa dosyaya yazmayabilir!)
+            dosyaOkuyucu.close();
+            a.close();
+            u.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Dosya bulunamadı: " + e.getMessage());
+        }
+    }
+}
+
+
