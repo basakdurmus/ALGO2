@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.Scanner;
+
+import java.io.File;
+
+   public class Main {
+
+       public static void main(String[] args){
+
+           File girdi = new File("selam.txt");
+
+           File cikti = new File("ters_cikti.txt");
+
+       String tumMetin = ""; // Dosyadaki her şeyi burada toplayacağız
+
+       // 1. ADIM: Dosyayı oku ve bir String'e aktar
+                   try (BufferedReader br = new BufferedReader(new FileReader(girdi))) {
+           int karakter;
+
+           // read() metodu her seferinde bir harf okur
+           while ((karakter = br.read()) != -1) {
+               // Okunan sayısal değeri harfe çevirip metne ekliyoruz
+               tumMetin = tumMetin + (char) karakter;
+           }
+
+           // 2. ADIM: Metni sondan başa doğru yeni dosyaya yaz
+           try (FileWriter fw = new FileWriter(cikti)) {
+
+               // Döngüyü metnin en son harfinden (length-1) başlatıyoruz
+               // 0. harfe kadar geri geri gidiyoruz
+               for (int i = tumMetin.length() - 1; i >= 0; i--) {
+                   char harf = tumMetin.charAt(i); // i. sıradaki harfi al
+                   fw.write(harf);                 // Dosyaya yaz
+               }
+
+               System.out.println("İşlem başarıyla tamamlandı!");
+           }
+
+       } catch (IOException e) {
+           System.out.println("Bir hata oluştu: " + e.getMessage());
+       }
+   }
+           }
+
