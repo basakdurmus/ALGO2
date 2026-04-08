@@ -1,0 +1,52 @@
+mport java.io.File;
+
+   public class Main {
+
+       public static void main(String[] args) throws FileNotFoundException {
+           Scanner sc=new Scanner(System.in);
+           System.out.println("aranacak kelimeyi giriniz");
+
+                   String aranan =sc.nextLine(); // Aradığımız kelime
+                   int satirSayaci = 0;
+                   boolean bulundu = false;
+
+                   try (BufferedReader br = new BufferedReader(new FileReader("selam.txt"))) {
+                       String satir;
+
+                       // 1. ADIM: Dosyayı satır satır oku
+                       while ((satir = br.readLine()) != null) {
+                           satirSayaci++; // Her yeni satırda sayacı artır
+
+                           // 2. ADIM: Bu satırın içinde aranan kelime var mı? (Manuel Kontrol)
+                           // Satırın her harfini geziyoruz
+                           for (int i = 0; i <= satir.length() - aranan.length(); i++) {
+                               boolean eslesmeVar = true;
+
+                               // Aranan kelimenin harfleriyle karşılaştırıyoruz
+                               for (int j = 0; j < aranan.length(); j++) {
+                                   if (satir.charAt(i + j) != aranan.charAt(j)) {
+                                       eslesmeVar = false;
+                                       break; // Harf uymadı, bu pozisyondan vazgeç
+                                   }
+                               }
+
+                               // Eğer eslesmeVar hala true ise kelimeyi bulduk!
+                               if (eslesmeVar) {
+                                   System.out.println("Buldum! Satır: " + satirSayaci + ", Sütun: " + (i + 1));
+                                   bulundu = true;
+                                   // Not: Aynı satırda birden fazla varsa hepsini yazar.
+                               }
+                           }
+                       }
+
+                       if (!bulundu) {
+                           System.out.println("Maalesef kelime dosyada yok.");
+                       }
+
+                   } catch (IOException e) {
+                       System.out.println("Dosya okunurken bir hata oluştu: " + e.getMessage());
+                   }
+               }
+           }
+
+
