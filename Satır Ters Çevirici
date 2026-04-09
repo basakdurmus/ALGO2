@@ -1,0 +1,37 @@
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        File f = new File("selam.txt");
+
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            String satir;
+            while ((satir = br.readLine()) != null) {
+                for(int i=satir.length()-1;i>=0;i--){
+                  char ch=satir.charAt(i);
+                    System.out.print(ch);
+
+                }
+                System.out.println(
+
+                );
+
+            }
+        }
+    }}
+
+
+
+
+
+
+
+
+
+
+
