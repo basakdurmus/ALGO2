@@ -1,0 +1,32 @@
+// Bir dosyayı tarayıp toplam karakter sayısını, boşluk hariç 
+karakter sayısını, kelime sayısını ve satır sayısını tek seferde raporlayan bir kod yaz.
+
+
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        File f = new File("selam.txt");
+
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            int toplam_karakter=0;
+            String satir;
+            while((satir=br.readLine()) !=null){
+                for(int i=0;i<satir.length();i++){
+                    char ch=satir.charAt(i);
+                    if(ch!= ' '){
+                        toplam_karakter=toplam_karakter+1;
+                        System.out.println(toplam_karakter);
+
+
+                    }
+
+
+            }
+        }
+    }}}
